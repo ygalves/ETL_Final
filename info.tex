@@ -1,0 +1,56 @@
+# Get from NullSafe Architect
+# https://youtu.be/PJzIzytxJ2M
+# https://www.youtube.com/watch?v=zkZPBHzvoMA
+´´´ bash
+-- USAR AIRFLOW
+crear carpeta 
+mkdir ETL_Final
+cd ETL_Final
+reiniciar terminal
+# iniciar ambiente virtual en la carpeta deseada usando pyenv
+$ virtualenv env
+# activar ambiente virtual
+source env/bin/activate
+# instalar airflow en la carpeta, para eso traer la variable del home de airflow
+# usar pwd para ver el path actual
+pwd
+# usar este comando y colocarle el path copiado de pwd
+export AIRFLOW_HOME=/home/ygalvis/Documents/Study/ETL_Final
+# crear las siguientes 3 variables:
+# Si es necesario ver informacion de airflow usando AIRFLOW INFO
+AIRFLOW_VERSION=2.10.5
+#y colocar la version de python usada, este bash script traemos la version del environment actual:
+PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
+# tarer las dependencias de instalación de airflow
+CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+# instalar AIRFLOW
+pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+
+#iniciar airflow en modo standalone
+airflow standalone
+# para probar si tenemos fallas en el .py:
+python /home/ygalvis/Documents/Study/ETL_Final/dags/example_dag.py
+
+# probar un dag en modo debug
+pip install apache-airflow[cncf.kubernetes]
+airflow tasks test dag_extract get_csv 2025-01-01
+´´´
+
+# para ejecutar dags desde bash, para obtener el id de session puede usar el depurador de codigo de la página web, seleccionar el DAG y ver networks allí verá la sesion en los headers
+curl -X POST -H 'accept: application/json' -H 'Content-type: application/json' -H 'Cookie: session=d27391ca-dd5c-46b5-8d24-d0518f99579c.3J0BM7QJlVX2Ef9URs44wjeVg9A' -d '{ "conf": {}, "dag_run_id": "xx2", "note": "string" }' http://127.0.0.1:7070/api/v1/dags/test11/dagRuns
+
+Ahora accede a Metabase en http://localhost:3000
+Cuando agregues PostgreSQL en Metabase, usa:
+
+Host: metabase_db (no localhost)
+
+Usuario: metabase
+
+Contraseña: metabase_pass
+
+Base de datos: metabase_db
+
+Puerto: 5432
+
+ir a carpeta de metabase y ejecutar:
+java -jar metabase.jar

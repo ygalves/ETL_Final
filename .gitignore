@@ -1,0 +1,76 @@
+# Ignorar todos los archivos YAML excepto config.yaml
+*.yaml
+!config.yaml
+
+# Ignorar todos los HTML excepto index.html
+*.html
+!index.html
+
+# 🔹 Archivos de Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.log
+
+# 🔹 Caché de herramientas de análisis estático
+.mypy_cache/
+.pytest_cache/
+
+# 🔹 Configuración de entornos virtuales
+.env
+.venv/
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+poetry.lock
+
+# 🔹 Pyenv
+.python-version
+
+# 🔹 Configuración de Airflow
+airflow.cfg
+unittests.cfg
+webserver_config.py
+logs/
+airflow.db
+
+# 🔹 Bases de datos y credenciales sensibles
+dags/Data/
+metabase/
+secrets/
+*.db
+*.sqlite
+*.pkl
+*.json
+*.csv
+*.xlsx
+*.parquet
+
+# 🔹 Archivos de PostgreSQL
+pgdata/
+postgresql.conf
+pg_hba.conf
+
+# 🔹 Configuración de Docker
+docker-compose.override.yml
+.dockerignore
+*.pid
+
+# 🔹 Metabase
+metabase.db*
+metabase-data*
+
+# 🔹 Archivos de IDEs y editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 🔹 Caché de Jupyter Notebooks
+.ipynb_checkpoints/
