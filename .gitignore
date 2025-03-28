@@ -242,3 +242,5 @@ dmypy.json
 
 # Cython
 cython_debug/
+metabase/metabase.jar
+metabase/plugins/snowflake.metabase-driver.jar
