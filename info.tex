@@ -54,3 +54,13 @@ Puerto: 5432
 
 ir a carpeta de metabase y ejecutar:
 java -jar metabase.jar
+
+cambir base de daos a posgresql.
+
+MB_DB_TYPE=postgres \
+MB_DB_DBNAME=metabase_db \
+MB_DB_PORT=5432 \
+MB_DB_USER=postgres \
+MB_DB_PASS=password \
+MB_DB_HOST=localhost \
+java -jar metabase.jar

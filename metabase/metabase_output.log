@@ -1,0 +1,125 @@
+2025-03-28 14:25:06,183 INFO metabase.util :: Maximum memory available to JVM: 3.8 GB
+2025-03-28 14:25:07,324 WARN db.env :: [31mWARNING: Using Metabase with an H2 application database is not recommended for production deployments. For production deployments, we highly recommend using Postgres, MySQL, or MariaDB instead. If you decide to continue to use H2, please be sure to back up the database file regularly. For more information, see https://metabase.com/docs/latest/operations-guide/migrating-from-h2.html[0m
+2025-03-28 14:25:07,462 INFO util.encryption :: Saved credentials encryption is DISABLED for this Metabase instance. 🔓 
+ For more information, see https://metabase.com/docs/latest/operations-guide/encrypting-database-details-at-rest.html
+2025-03-28 14:25:11,994 INFO driver.impl :: [34mRegistered abstract driver :sql[0m  🚚
+2025-03-28 14:25:12,001 INFO driver.impl :: [34mRegistered abstract driver :sql-jdbc[0m (parents: [:sql]) 🚚
+2025-03-28 14:25:12,006 INFO metabase.util :: [32mLoad driver :sql-jdbc took 57.3 ms[0m
+2025-03-28 14:25:12,006 INFO driver.impl :: [34mRegistered driver :h2[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:12,146 INFO driver.impl :: [34mRegistered driver :mysql[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:12,169 INFO driver.impl :: [34mRegistered driver :postgres[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:13,553 INFO metabase.core :: 
+Metabase v0.49.10 (9e8fc83) 
+
+Copyright © 2025 Metabase, Inc. 
+
+Metabase Enterprise Edition extensions are NOT PRESENT.
+2025-03-28 14:25:13,561 INFO metabase.core :: Starting Metabase in STANDALONE mode
+2025-03-28 14:25:13,599 INFO metabase.server :: Launching Embedded Jetty Webserver with config:
+ {:port 3000}
+
+2025-03-28 14:25:13,650 INFO metabase.core :: Starting Metabase version v0.49.10 (9e8fc83) ...
+2025-03-28 14:25:13,655 INFO metabase.core :: System info:
+ {"file.encoding" "UTF-8",
+ "java.runtime.name" "OpenJDK Runtime Environment",
+ "java.runtime.version" "11.0.26+4-post-Ubuntu-1ubuntu124.04",
+ "java.vendor" "Ubuntu",
+ "java.vendor.url" "https://ubuntu.com/",
+ "java.version" "11.0.26",
+ "java.vm.name" "OpenJDK 64-Bit Server VM",
+ "java.vm.version" "11.0.26+4-post-Ubuntu-1ubuntu124.04",
+ "os.name" "Linux",
+ "os.version" "6.11.0-19-generic",
+ "user.language" "en",
+ "user.timezone" "America/Bogota"}
+
+2025-03-28 14:25:13,658 INFO metabase.plugins :: Loading plugins in /home/ygalvis/Documents/Study/ETL_Final/metabase/plugins...
+2025-03-28 14:25:14,036 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :sqlite...[0m
+2025-03-28 14:25:14,037 INFO driver.impl :: [34mRegistered driver :sqlite[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:14,055 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :presto-jdbc...[0m
+2025-03-28 14:25:14,056 INFO driver.impl :: [34mRegistered driver :presto-jdbc[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:14,061 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :googleanalytics...[0m
+2025-03-28 14:25:14,061 INFO driver.impl :: [34mRegistered driver :googleanalytics[0m  🚚
+2025-03-28 14:25:14,092 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :snowflake...[0m
+2025-03-28 14:25:14,093 INFO driver.impl :: [34mRegistered driver :snowflake[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:14,107 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :bigquery-cloud-sdk...[0m
+2025-03-28 14:25:14,108 INFO driver.impl :: [34mRegistered driver :bigquery-cloud-sdk[0m (parents: [:sql]) 🚚
+2025-03-28 14:25:14,115 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :mongo...[0m
+2025-03-28 14:25:14,116 INFO driver.impl :: [34mRegistered driver :mongo[0m  🚚
+2025-03-28 14:25:14,119 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :druid...[0m
+2025-03-28 14:25:14,120 INFO driver.impl :: [34mRegistered driver :druid[0m  🚚
+2025-03-28 14:25:14,124 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :redshift...[0m
+2025-03-28 14:25:14,125 INFO driver.impl :: [34mRegistered driver :redshift[0m (parents: [:postgres]) 🚚
+2025-03-28 14:25:14,133 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :hive-like...[0m
+2025-03-28 14:25:14,133 INFO driver.impl :: [34mRegistered abstract driver :hive-like[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:14,134 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :sparksql...[0m
+2025-03-28 14:25:14,134 INFO driver.impl :: [34mRegistered driver :sparksql[0m (parents: [:hive-like]) 🚚
+2025-03-28 14:25:14,139 INFO plugins.dependencies :: [31mMetabase cannot initialize plugin Metabase Oracle Driver due to required dependencies.[0m Metabase requires the Oracle JDBC driver in order to connect to Oracle databases, but we can't ship it as part of Metabase due to licensing restrictions. See https://metabase.com/docs/latest/administration-guide/databases/oracle.html for more details.
+
+2025-03-28 14:25:14,141 INFO plugins.dependencies :: Metabase Oracle Driver dependency {:class oracle.jdbc.OracleDriver} satisfied? false
+2025-03-28 14:25:14,142 INFO plugins.dependencies :: [33mPlugins with unsatisfied deps: ["Metabase Oracle Driver"][0m
+2025-03-28 14:25:14,145 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :sqlserver...[0m
+2025-03-28 14:25:14,146 INFO driver.impl :: [34mRegistered driver :sqlserver[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:14,150 INFO plugins.dependencies :: [31mMetabase cannot initialize plugin Metabase Vertica Driver due to required dependencies.[0m Metabase requires the Vertica JDBC driver in order to connect to Vertica databases, but we can't ship it as part of Metabase due to licensing restrictions. See https://metabase.com/docs/latest/administration-guide/databases/vertica.html for more details.
+
+2025-03-28 14:25:14,150 INFO plugins.dependencies :: Metabase Vertica Driver dependency {:class com.vertica.jdbc.Driver} satisfied? false
+2025-03-28 14:25:14,151 INFO plugins.dependencies :: [33mPlugins with unsatisfied deps: ["Metabase Oracle Driver" "Metabase Vertica Driver"][0m
+2025-03-28 14:25:14,160 DEBUG plugins.lazy-loaded-driver :: [35mRegistering lazy loading driver :athena...[0m
+2025-03-28 14:25:14,161 INFO driver.impl :: [34mRegistered driver :athena[0m (parents: [:sql-jdbc]) 🚚
+2025-03-28 14:25:14,167 INFO metabase.core :: Setting up and migrating Metabase DB. Please sit tight, this may take a minute...
+2025-03-28 14:25:14,169 INFO db.setup :: [36mVerifying h2 Database Connection ...[0m
+2025-03-28 14:25:14,781 INFO db.setup :: Successfully verified H2 2.1.214 (2022-06-13) application database connection. ✅
+2025-03-28 14:25:14,783 INFO db.setup :: [36mChecking if a database downgrade is required...[0m
+2025-03-28 14:25:15,564 INFO db.setup :: Running Database Migrations...
+2025-03-28 14:25:15,565 INFO db.setup :: Setting up Liquibase...
+2025-03-28 14:25:15,868 INFO db.setup :: Liquibase is ready.
+2025-03-28 14:25:15,869 INFO db.liquibase :: Checking if Database has unrun migrations...
+2025-03-28 14:25:16,342 INFO db.liquibase :: No unrun migrations found.
+2025-03-28 14:25:16,343 INFO db.setup :: Database Migrations Current ...  ✅
+2025-03-28 14:25:16,344 INFO metabase.util :: [32mDatabase setup took 2.2 s[0m
+2025-03-28 14:25:16,606 INFO driver.impl :: [33mInicializando controlador :sql[0m
+2025-03-28 14:25:16,607 INFO driver.impl :: [33mInicializando controlador :sql-jdbc[0m
+2025-03-28 14:25:16,607 INFO driver.impl :: [33mInicializando controlador :h2[0m
+2025-03-28 14:25:16,819 INFO impl.StdSchedulerFactory :: Using default implementation for ThreadExecutor
+2025-03-28 14:25:16,832 INFO core.SchedulerSignalerImpl :: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-03-28 14:25:16,832 INFO core.QuartzScheduler :: Quartz Scheduler v.2.3.2 created.
+2025-03-28 14:25:16,833 INFO jdbcjobstore.JobStoreTX :: Using db table-based data access locking (synchronization).
+2025-03-28 14:25:16,835 INFO jdbcjobstore.JobStoreTX :: JobStoreTX initialized.
+2025-03-28 14:25:16,836 INFO core.QuartzScheduler :: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MetabaseScheduler' with instanceId 'Hades1743189916821'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.impl.jdbcjobstore.JobStoreTX' - which supports persistence. and is clustered.
+
+2025-03-28 14:25:16,836 INFO impl.StdSchedulerFactory :: Quartz scheduler 'MetabaseScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+2025-03-28 14:25:16,836 INFO impl.StdSchedulerFactory :: Quartz scheduler version: 2.3.2
+2025-03-28 14:25:16,926 INFO core.QuartzScheduler :: Scheduler MetabaseScheduler_$_Hades1743189916821 paused.
+2025-03-28 14:25:16,927 INFO metabase.task :: Task scheduler initialized into standby mode.
+2025-03-28 14:25:16,927 INFO metabase.task :: Initializing task [32mSyncDatabases[0m
+2025-03-28 14:25:16,965 INFO task.sync-databases :: Updated default schedules for %d databases 0
+2025-03-28 14:25:16,965 INFO metabase.task :: Initializing task [32mPersistRefresh[0m
+2025-03-28 14:25:16,991 INFO metabase.task :: Initializing task [32mCheckForNewVersions[0m
+2025-03-28 14:25:17,012 INFO metabase.task :: Initializing task [32mPersistPrune[0m
+2025-03-28 14:25:17,016 INFO metabase.task :: Initializing task [32mSendAnonymousUsageStats[0m
+2025-03-28 14:25:17,029 INFO metabase.task :: Initializing task [32mModelIndexValues[0m
+2025-03-28 14:25:17,032 INFO metabase.task :: Initializing task [32mRefreshSlackChannelsAndUsers[0m
+2025-03-28 14:25:17,050 INFO metabase.task :: Initializing task [32mTruncateAuditTables[0m
+2025-03-28 14:25:17,061 INFO metabase.task :: Initializing task [32mSendPulses[0m
+2025-03-28 14:25:17,071 INFO metabase.task :: Initializing task [32mSendFollowUpEmails[0m
+2025-03-28 14:25:17,080 INFO metabase.task :: Initializing task [32mSendCreatorSentimentEmails[0m
+2025-03-28 14:25:17,090 INFO metabase.task :: Initializing task [32mTaskHistoryCleanup[0m
+2025-03-28 14:25:17,100 INFO metabase.task :: Initializing task [32mSendWarnPulseRemovalEmail[0m
+2025-03-28 14:25:17,105 INFO jdbcjobstore.JobStoreTX :: ClusterManager: detected 1 failed or restarted instances.
+2025-03-28 14:25:17,105 INFO jdbcjobstore.JobStoreTX :: ClusterManager: Scanning for instance "Hades1743185228437"'s failed in-progress jobs.
+2025-03-28 14:25:17,107 INFO core.QuartzScheduler :: Scheduler MetabaseScheduler_$_Hades1743189916821 started.
+2025-03-28 14:25:17,108 INFO metabase.task :: Task scheduler started
+2025-03-28 14:25:17,109 INFO metabase.core :: Inicialización de Metabase COMPLETA en 14.0 s
+2025-03-28 14:25:17,132 INFO task.refresh-slack-channel-user-cache :: Slack no está configurado, no se ha refrescado la cache del usuario/canal de slack.
+2025-03-28 14:30:47,860 INFO metabase.core :: Metabase Shutting Down ...
+2025-03-28 14:30:47,860 INFO core.QuartzScheduler :: Scheduler MetabaseScheduler_$_Hades1743189916821 shutting down.
+2025-03-28 14:30:47,860 INFO core.QuartzScheduler :: Scheduler MetabaseScheduler_$_Hades1743189916821 paused.
+2025-03-28 14:30:47,864 INFO core.QuartzScheduler :: Scheduler MetabaseScheduler_$_Hades1743189916821 shutdown complete.
+2025-03-28 14:30:47,865 INFO metabase.server :: Apagando el servidor Jetty embebido
+2025-03-28 14:30:47,872 INFO metabase.core :: Metabase Shutdown COMPLETE

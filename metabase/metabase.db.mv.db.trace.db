@@ -1,3 +1,0 @@
-2025-03-27 08:52:10 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CORE_USER" not found (this database is empty); SQL statement:
-SELECT id, email FROM core_user [42104-214]
