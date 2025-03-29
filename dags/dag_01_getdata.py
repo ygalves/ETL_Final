@@ -16,14 +16,21 @@ Requisitos:
     - Airflow debe estar correctamente configurado.
     - Las dependencias necesarias (Airflow, ydata_profiling, pandas, PyYAML, requests, etc.) deben estar instaladas.
 
-El archivo configuration.yaml debe tener la siguiente estructura:
+El archivo configuration.yaml debe estar en la carpeta *dags/credentials* y tener la siguiente estructura (usa direcciones absolitas):
     
-    data_path: "/ruta/al/Data/"
-    file_name_input: "Dataset.csv"
-    file_extension_input: "csv, txt, html"
-    report_retention_days: 7
-    url_file: "https://ruta/al/archivo.csv"
-    raw_table_name: "your database table to log raw data from downloaded csv"
+configuration:
+  data_path: "~/Documents/Study/ETL_Final/dags/data"
+  file_name_input: "Dataset.csv"
+  file_extension_input: "html, csv, txt"
+  report_retention_days: 7
+  url_file: "https://raw.githubusercontent.com/ygalves/ETL_project/refs/heads/main/Dataset/caso%20etl.csv"
+  raw_table_name: "etl_dataset"
+  transformed_table_name: "etl_transformed"
+  eu_table: "eu"
+  events_table: "events"
+  lots_table: "lots"
+  phases_table: "phases"
+
 
 Prueba:
     - pip install psycopg2-binary SQLAlchemy pandas PyYAML
@@ -205,9 +212,9 @@ def _profile(**kwargs):
 
 # ---------------------- Definición del DAG ----------------------
 default_args = {
-    'owner': 'UAO-YGA',
+    'owner': 'my',
     'depends_on_past': False,
-    'email': ["yoniliman.galves@uao.edu.co"],
+    'email': ["myuser@myemail.co"],
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 2,
