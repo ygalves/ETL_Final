@@ -1,0 +1,20 @@
+graph TD;
+    subgraph DAG_03_transform
+        A[load_config] -->|Success| B[clean_data];
+        B -->|Apply transformations| B1[remove_duplicates];
+        B1 -->|Normalize values| B2[standardize_formats];
+        B2 -->|Handle missing values| B3[impute_missing_data];
+        B3 -->|Success| C[create_database];
+        C -->|Success| D[create_table];
+        D -->|Success| E[write_data];
+    end
+    
+    A -.->|Failure| X[log_error];
+    B -.->|Failure| X;
+    B1 -.->|Failure| X;
+    B2 -.->|Failure| X;
+    B3 -.->|Failure| X;
+    C -.->|Failure| X;
+    D -.->|Failure| X;
+    E -.->|Failure| X;
+    X -->|Retry| A;

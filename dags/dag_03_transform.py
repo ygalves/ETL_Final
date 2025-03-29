@@ -35,11 +35,11 @@ El archivo configuration.yaml debe tener la siguiente estructura:
 El archivo credentials.yaml debe tener la siguiente estructura:
 
     database:
-      user: "postgres"
-      password: "password"
+      user: "usuario de postgres"
+      password: "password del usuario"
       host: "localhost"
       port: 5432
-      name: "ETL_prj"
+      name: "nombre de la base de datos apra staging"
 
 Requisitos:
     - pip install psycopg2-binary SQLAlchemy pandas PyYAML
@@ -146,11 +146,11 @@ def load_db_config():
     Se espera que el YAML tenga la siguiente estructura:
     
     database:
-      user: "postgres"
-      password: "password"
+      user: "usuario de postgres"
+      password: "password del usuario"
       host: "localhost"
       port: 5432
-      name: "ETL_prj"
+      name: "nombre de la base de datos apra staging"
     
     Retorna un diccionario con las credenciales de conexión.
     """
@@ -688,9 +688,9 @@ def load_phases(**kwargs):
 
 # ---------------------- Definición del DAG ----------------------
 default_args = {
-    'owner': 'UAO-YGA',
+    'owner': 'myname',
     'depends_on_past': False,
-    'email': ["yoniliman.galves@uao.edu.co"],
+    'email': ["my@myemail.com"],
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 2,

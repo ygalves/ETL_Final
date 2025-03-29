@@ -1,0 +1,13 @@
+graph TD;
+    A[Load Configuration] --> B[Clean Old Files];
+    B --> C[Check File Name];
+    C --> D[Download CSV];
+    D --> E[Generate Data Profile];
+    
+    A -.->|Failure| F[Log Error & Stop];
+    B -.->|Failure| F;
+    C -.->|Failure| F;
+    D -.->|Failure| F;
+    E -.->|Failure| F;
+    
+    F -->|Retry or Stop| A;

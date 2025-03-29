@@ -1,0 +1,14 @@
+graph TD;
+    subgraph DAG_02_Extract
+        A[load_config] -->|Success| B[clean_data];
+        B -->|Success| C[create_database];
+        C -->|Success| D[create_table];
+        D -->|Success| E[write_data];
+    end
+    
+    A -.->|Failure| X[log_error];
+    B -.->|Failure| X;
+    C -.->|Failure| X;
+    D -.->|Failure| X;
+    E -.->|Failure| X;
+    X -->|Retry| A;

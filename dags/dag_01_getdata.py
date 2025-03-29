@@ -212,7 +212,7 @@ def _profile(**kwargs):
 
 # ---------------------- Definición del DAG ----------------------
 default_args = {
-    'owner': 'my',
+    'owner': 'myname',
     'depends_on_past': False,
     'email': ["myuser@myemail.co"],
     'email_on_failure': False,

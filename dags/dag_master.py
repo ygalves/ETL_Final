@@ -90,16 +90,16 @@ def task_failure_callback(context):
 
 # ---------------------- Configuración y Variables ----------------------
 default_args = {
-    'owner': 'UAO-YGA',
+    'owner': 'myname',
     'depends_on_past': False,
-    'email': ["yoniliman.galves@uao.edu.co"],
+    'email': ["myname@myemail.com"],
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 2,
     'retry_delay': timedelta(minutes=5),
 }
 
-DATA_PATH = Variable.get("data_path", default_var="/home/ygalvis/Documents/Study/ETL_Final/dags/Data/")
+DATA_PATH = Variable.get("data_path", default_var="~/Documents/Study/ETL_Final/dags/Data/")
 FILE_NAME_DEFAULT = Variable.get("file_name_input", default_var="Dataset.csv")
 CREDENTIALS_PATH = Variable.get("db_credential_path", default_var=os.path.join(os.path.dirname(__file__), "credentials.yaml"))
 RAW_TABLE_NAME = Variable.get("raw_table_name", default_var="Dataset").lower()
@@ -187,11 +187,11 @@ def load_db_config():
     Se espera que el YAML tenga la siguiente estructura:
     
     database:
-      user: "postgres"
-      password: "password"
-      host: "localhost"
-      port: 5432
-      name: "ETL_prj"
+        user: "usuario de postgres"
+        password: "password del usuario"
+        host: "localhost"
+        port: 5432
+        name: "nombre de la base de datos"
     
     Retorna un diccionario con las credenciales de conexión.
     """
@@ -1047,25 +1047,15 @@ def load_phases(**kwargs):
 
 # ---------------------- Definición del DAG ----------------------
 default_args = {
-    'owner': 'UAO-YGA',
+    'owner': 'myname',
     'depends_on_past': False,
-    'email': ["yoniliman.galves@uao.edu.co"],
+    'email': ["myname@myemail.com"],
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 2,
     'retry_delay': timedelta(minutes=5),
 }
 
-
-default_args = {
-    'owner': 'UAO-YGA',
-    'depends_on_past': False,
-    'email': ["yoniliman.galves@uao.edu.co"],
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 2,
-    'retry_delay': timedelta(minutes=5),
-}
 
 with DAG(
     'dag_master',

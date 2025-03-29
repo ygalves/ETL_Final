@@ -12,19 +12,19 @@ Descripción:
       4. Insertar (anexar) los datos del CSV limpio en la tabla creada utilizando SQLAlchemy's insert() a partir de una lista de diccionarios.
       
 Variables a crear en Airflow (ejemplo):
-    - data_path: "/home/ygalvis/Documents/Study/ETL_Final/dags/Data/"
+    - data_path: "~/Documents/Study/ETL_Final/dags/Data/"
     - file_name_input: "Dataset.csv"
-    - db_credential_path: "/home/ygalvis/Documents/Study/ETL_Final/dags/Data/credentials.yaml"
+    - db_credential_path: "~/Documents/Study/ETL_Final/dags/Data/credentials.yaml"
     - raw_table_name: "Dataset"   # Este valor se usará para crear la tabla
 
 El archivo credentials.yaml debe tener la siguiente estructura:
 
 database:
-  user: "postgres"
-  password: "password"
+  user: "usuario de postgres"
+  password: "password del usuario"
   host: "localhost"
   port: 5432
-  name: "ETL_prj"
+  name: "nombre de la base de datos"
 
 Prueba:
     - pip install psycopg2-binary SQLAlchemy pandas PyYAML
@@ -47,7 +47,7 @@ from airflow.operators.python import PythonOperator
 
 # ---------------------- Callbacks ----------------------
 def task_success_callback(context):
-    # primera transformacion cambia ID por Lot_ID para evitar confusion con el id de la base de datos
+    # primera transformacion vamos a cambiar ID por Lot_ID para evitar confusion con el id de la base de datos
     task_id = context.get('task_instance').task_id
     logging.info(f"Tarea {task_id} ejecutada exitosamente.")
 
@@ -58,16 +58,16 @@ def task_failure_callback(context):
 
 # ---------------------- Configuración y Variables ----------------------
 default_args = {
-    'owner': 'UAO-YGA',
+    'owner': 'my',
     'depends_on_past': False,
-    'email': ["yoniliman.galves@uao.edu.co"],
+    'email': ["myname@myemail.com"],
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 2,
     'retry_delay': timedelta(minutes=5),
 }
 
-DATA_PATH = Variable.get("data_path", default_var="/home/ygalvis/Documents/Study/ETL_Final/dags/Data/")
+DATA_PATH = Variable.get("data_path", default_var="~/Documents/Study/ETL_Final/dags/Data/")
 FILE_NAME_DEFAULT = Variable.get("file_name_input", default_var="Dataset.csv")
 CREDENTIALS_PATH = Variable.get("db_credential_path", default_var=os.path.join(os.path.dirname(__file__), "credentials.yaml"))
 RAW_TABLE_NAME = Variable.get("raw_table_name", default_var="Dataset").lower()
@@ -228,10 +228,10 @@ def write_data(**kwargs):
     csv_path = CLEAN_FILE
     try:
         df = pd.read_csv(csv_path, low_memory=False, header=0, delimiter=',')
-        # Asegurarse de que los nombres de columnas sean consistentes con la tabla
+        # Tenemos que asegurarnos de que los nombres de columnas sean consistentes con la tabla
         # Se espera que el CSV tenga columnas con nombres que, al limpiar, resulten en:
         # "DateTime", "lot_ID", "Prod_ID", "Type", "Train", "Unit", "Phase_ID", "EU", "Value", "Verify"
-        # Si es necesario, mapea o renombra aquí:
+        # Si es necesario, hay que mapear o renombra aquí si lo necesitamos:
         df.columns = [col.strip().replace(" ", "_") for col in df.columns]
         # Por ejemplo, para mapear a mayúsculas (si la tabla espera nombres exactos):
         df.rename(columns={
